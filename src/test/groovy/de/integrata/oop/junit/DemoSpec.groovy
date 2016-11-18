@@ -16,7 +16,6 @@ class DemoSpec extends Specification {
 	def "when findById throws null, an excpetion is thrown"() {
 		given:
 		database.findById(_) >> null
-		def list = [1,2,3]
 		
 		when:
 		employeeService.findById(new EmployeeId("something"))
@@ -24,7 +23,6 @@ class DemoSpec extends Specification {
 		then:
 		def e = thrown(Exception)
 		e.message == "bla"
-		list.find { it == 2 }
 	}
 	
 	
